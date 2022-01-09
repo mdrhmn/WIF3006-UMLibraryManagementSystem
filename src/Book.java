@@ -39,9 +39,4 @@ public class Book {
         this.unavailableQuantity = unavailableQuantity;
     }
 
-    @Override
-    public String toString() {
-        return "[" + name + " | " + author + " | " + year + "| Available: " + availableQuantity + "]";
-    }
-
 }
