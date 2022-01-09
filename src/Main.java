@@ -215,7 +215,7 @@ public class Main {
             System.out.println("[1] Issue Books");
             System.out.println("[2] View Issued Books");
             System.out.println("[3] Register New Book");
-            System.out.println("[4] View Books");
+            System.out.println("[4] View All Books");
             System.out.println("[5] Update Books");
             System.out.println("[6] Delete Books");
             System.out.println("[-1] Sign out");
@@ -233,6 +233,7 @@ public class Main {
                     user.viewIssuedBooks();
                     break;
                 }
+                // TODO: Choose to update certain fields only
                 case 3: {
                     System.out.println("\nEnter book title: ");
                     String bookName = scanner.nextLine();
@@ -278,7 +279,8 @@ public class Main {
                     break;
                 }
                 case 6: {
-                    user.viewIssuedBooks();
+                    user.viewBooks();
+
                     System.out.println("\nChoose Book ID to delete");
                     int choice = scanner.nextInt();
                     scanner.nextLine();
