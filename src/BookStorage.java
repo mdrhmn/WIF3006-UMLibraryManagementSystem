@@ -51,24 +51,25 @@ public class BookStorage {
 
     public void registerBook(Book newBook) {
         books.add(newBook);
+        System.out.println(newBook.name + " successfully regisered.");
+
     }
 
     public void updateBook(int choice, String bookAuthor, String bookTitle, int bookYear, int bookQuantity) {
-        int bookIndex = 0;
-        for (Book _book : books) {
-            if (bookIndex == choice) {
-                _book.setAuthor(bookAuthor);
-                _book.setTitle(bookTitle);
-                _book.setYear(bookYear);
-                _book.setAvailableQuantity(bookQuantity);
-            }
-            bookIndex++;
-        }
+        Book selectedBook = books.get(choice);
 
+        selectedBook.setAuthor(bookAuthor);
+        selectedBook.setTitle(bookTitle);
+        selectedBook.setYear(bookYear);
+        selectedBook.setAvailableQuantity(bookQuantity);
+
+        System.out.println(bookTitle + " successfully updated.");
     }
 
     public void deleteBook(int bookIndex) {
         books.remove(bookIndex - 1);
+        System.out.println(getBook(bookIndex).name + " successfully deleted.");
+
     }
 
     public Book getBook(int index) {
