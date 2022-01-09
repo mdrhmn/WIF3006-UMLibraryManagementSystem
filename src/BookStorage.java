@@ -51,7 +51,7 @@ public class BookStorage {
 
     public void registerBook(Book newBook) {
         books.add(newBook);
-        System.out.println(newBook.name + " successfully regisered.");
+        System.out.println("\n" + newBook.name + " successfully regisered.");
 
     }
 
@@ -63,12 +63,12 @@ public class BookStorage {
         selectedBook.setYear(bookYear);
         selectedBook.setAvailableQuantity(bookQuantity);
 
-        System.out.println(bookTitle + " successfully updated.");
+        System.out.println("\n" + bookTitle + " successfully updated.");
     }
 
     public void deleteBook(int bookIndex) {
         books.remove(bookIndex - 1);
-        System.out.println(getBook(bookIndex).name + " successfully deleted.");
+        System.out.println("\n" + getBook(bookIndex).name + " successfully deleted.");
 
     }
 
