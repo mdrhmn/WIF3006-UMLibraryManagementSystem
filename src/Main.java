@@ -131,7 +131,9 @@ public class Main {
                 System.out.println("Do you want to reattempt sign in?");
                 System.out.println("[1] Yes");
                 System.out.println("[-1] Exit\n");
+                System.out.print("\nEnter action: ");
                 menuAction = scanner.nextInt();
+
                 scanner.nextLine();
 
                 if (menuAction == -1) {
@@ -156,8 +158,10 @@ public class Main {
             System.out.println("\n[1] Reserve Book");
             System.out.println("[2] Cancel All Reservations");
             System.out.println("[3] Cancel Reservation");
-            System.out.println("[4] View Reserved Books");
-            System.out.println("[5] View All Books");
+            System.out.println("[4] View Reservations");
+            System.out.println("[5] View Issued Books");
+            System.out.println("[6] Return Issued Books");
+            System.out.println("[7] View All Books");
             System.out.println("[-1] Sign out");
 
             System.out.print("\nEnter action: ");
@@ -181,6 +185,14 @@ public class Main {
                     break;
                 }
                 case 5: {
+                    user.viewIssuedBooks();
+                    break;
+                }
+                case 6: {
+                    user.returnIssuedBooks();
+                    break;
+                }
+                case 7: {
                     user.viewBooks();
                     break;
                 }

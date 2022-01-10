@@ -48,7 +48,7 @@ public class Librarian extends User {
                 int memberIndex = scanner.nextInt();
 
                 if (memberIndex != -1) {
-                    issuedBooks.addIssuedBooks(issuedBooks.getMember(memberIndex));
+                    issuedBooks.approveReservations(issuedBooks.getMember(memberIndex));
                 }
 
                 break;
@@ -58,7 +58,7 @@ public class Librarian extends User {
                 int memberIndex = scanner.nextInt();
 
                 if (memberIndex != -1) {
-                    issuedBooks.removeIssuedBooks(issuedBooks.getMember(memberIndex));
+                    issuedBooks.rejectReservations(issuedBooks.getMember(memberIndex));
                 }
                 break;
             }
@@ -73,7 +73,4 @@ public class Librarian extends User {
         System.out.println(issuedBooks);
     }
 
-    public void updateIssuedBooks() {
-
-    }
 }

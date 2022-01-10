@@ -34,7 +34,7 @@ public class IssuedBooks {
     }
 
     // TODO: Add/reject book reservations at book level instead of user level
-    public void addIssuedBooks(Member member) {
+    public void approveReservations(Member member) {
         Reservation reservation = (new Reservation()).getInstance();
 
         ReservationInformation reservationInformation = reservation.reservationQueue.get(member);
@@ -46,7 +46,7 @@ public class IssuedBooks {
         System.out.println("Reservation request for " + member.name + " has been successfully approved!");
     }
 
-    public void removeIssuedBooks(Member member) {
+    public void rejectReservations(Member member) {
         Reservation reservation = (new Reservation()).getInstance();
 
         ReservationInformation reservationInformation = reservation.reservationQueue.get(member);
@@ -59,10 +59,47 @@ public class IssuedBooks {
         System.out.println(bookInstance.toString());
     }
 
-    public void updateIssuedBooks() {
+    public void memberIssuedBooks(Member member) {
+        StringBuffer buffer = new StringBuffer();
+
+        if (bookInstance.approvedReservation.containsKey(member)) {
+            ReservationInformation reservationInformation = bookInstance.approvedReservation.get(member);
+
+            System.out.println("\n#####################################################################################################");
+            System.out.println("\nIssued books list for " + member.name + ":\n");
+
+            String format = "%5s %20s %20s %10s\n";
+            String headerDivider = "========================================================================";
+            String rowDivider = "------------------------------------------------------------------------";
+
+            System.out.println(headerDivider);
+            System.out.println(String.format(format, "ID", "NAME", "AUTHOR", "YEAR"));
+            System.out.println(headerDivider);
+
+            for (Book book : reservationInformation.bookRequested) {
+                System.out.println(String.format(format, book.id, book.name, book.author, book.year));
+                System.out.println(rowDivider);
+                System.out.println("\n");
+            }
+        } else {
+            System.out.println("\n#####################################################################################################");
+            System.out.println("\nNo issued books records can be found for " + member.name + ".");
+        }
     }
 
-    public void returnIssuedBooks() {
+    public void returnIssuedBooks(Member member) {
+        if (bookInstance.approvedReservation.containsKey(member)) {
+            ReservationInformation reservationInformation = bookInstance.approvedReservation.get(member);
+
+            reservationInformation.changeBookStatus(false);
+            bookInstance.approvedReservation.remove(member);
+
+            System.out.println("\n#####################################################################################################");
+            System.out.println("\nAll issued books for " + member.name + " have been successfully returned!");
+        } else {
+            System.out.println("\n#####################################################################################################");
+            System.out.println("\nNo issued books records can be found for " + member.name + ".");
+        }
     }
 
     @Override
@@ -71,7 +108,7 @@ public class IssuedBooks {
         int count = 0;
 
         buffer.append("\n#####################################################################################################");
-        buffer.append("\nIssued book reservation list:\n");
+        buffer.append("\nIssued books list:\n");
 
         String format = "%5s %20s %20s %10s\n";
         String headerDivider = "========================================================================";

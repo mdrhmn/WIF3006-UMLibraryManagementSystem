@@ -14,7 +14,6 @@ public class Reservation {
         return reservationInstance;
     }
 
-    // 
     public ReservationInformation getReservation(Member member) {
         ReservationInformation reservationInformation = reservationInstance.reservationQueue.get(member);
         if (reservationInformation == null) {
@@ -54,9 +53,20 @@ public class Reservation {
                 reservationInstance.reservationQueue.remove(member);
                 System.out.println("Reservation data for " + member.name + " has been successfully deleted!");
             }
-
         } else {
             System.out.println("Error! You do not have any books reserved!");
+        }
+    }
+
+    public boolean getReservationStatus(Member member) {
+        if (reservationInstance.getReservation(member) != null) {
+            if (reservationInstance.getReservation(member).bookRequested.isEmpty()) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
         }
     }
 
@@ -76,7 +86,7 @@ public class Reservation {
         ReservationInformation ri;
 
         if (reservationInstance.reservationQueue.keySet().isEmpty()) {
-            buffer.append("No reservation records can be found.");
+            buffer.append("\nNo reservation records can be found.");
         } else {
             for (Member member : reservationInstance.reservationQueue.keySet()) {
                 buffer.append("ID\tMEMBER NAME\n");

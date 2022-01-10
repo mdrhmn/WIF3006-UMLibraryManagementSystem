@@ -29,11 +29,10 @@ public class ReservationInformation {
 
         buffer.append("\n#####################################################################################################");
 
-        buffer.append("\n\nList of your reserved books:\n");
-
         if (bookRequested.isEmpty()) {
-            buffer.append("No reservation records can be found.");
+            buffer.append("\n\nNo reservation records can be found.");
         } else {
+            buffer.append("\n\nList of your reserved books:\n");
             String format = "%5s %20s %20s %10s %10s\n";
             String headerDivider = "========================================================================";
             String rowDivider = "------------------------------------------------------------------------";
