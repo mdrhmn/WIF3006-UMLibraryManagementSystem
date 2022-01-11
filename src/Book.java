@@ -3,20 +3,30 @@ public class Book {
 	String name;
 	String author;
 	int year;
-	Boolean issuedStatus;
+//	Boolean issuedStatus;
+	int availableQuantity;
+	int unavailableQuantity;
 	
 	
-	public Book(String name, String author, int year, Boolean issuedStatus) {
+	public Book(
+		String name, 
+		String author, 
+		int year, 
+		int availableQuantity, 
+		int unavailableQuantity
+	) {
+		
 		this.name = name;
 		this.author = author;
 		this.year = year;
-		this.issuedStatus = issuedStatus;
+		this.availableQuantity = availableQuantity;
+		this.unavailableQuantity = unavailableQuantity;
+		
 	}
 	
 	
 	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return "["+name+" | "+author+" | "+year+(issuedStatus? " | Unavailable" : " | Avaliable")+"]";
+	public String toString() {		
+		return "["+name+" | "+author+" | "+year+"| Available: "+availableQuantity+"| Unavailable: "+unavailableQuantity+"]";
 	}
 }

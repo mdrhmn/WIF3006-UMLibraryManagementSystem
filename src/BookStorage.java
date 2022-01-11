@@ -18,7 +18,7 @@ public class BookStorage {
 			// TEMP DATA
 			uniqueInstance.books = new ArrayList<Book>();
 			for(int i=1; i<=9; i++) {
-				uniqueInstance.books.add(new Book("Book "+i, "Author "+i, 2000+i, false));
+				uniqueInstance.books.add(new Book("Book "+i, "Author "+i, 2000+i, 3, 0));
 			}	
 		}
 		return uniqueInstance;

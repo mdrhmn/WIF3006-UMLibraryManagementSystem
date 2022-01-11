@@ -3,11 +3,14 @@ import java.util.Scanner;
 public class Member {
 	
 	String name;
+	String username;
+	String password;
 	
-	public Member(String name) {
+	public Member(String name, String username, String password) {
 		this.name = name;
+		this.username = username;
+		this.password = password;
 	}
-	
 	
 	public void returnIssuedBooks() {
 		
@@ -25,13 +28,15 @@ public class Member {
 		System.out.println("\n -- SELECT A BOOK USING ITS [INDEX] -- \n");
 		bs.viewBooks();
 		
-		System.out.print("Book to add: ");
+		System.out.print("Book to add [99 to cancel]: ");
 		
 		Scanner scanner = new Scanner(System.in);
 		
 		//reserve book
 		int bookIndex = scanner.nextInt();
-		r.makeReservation(this, bs.getBook(bookIndex));
+		if(bookIndex != 99) {
+			r.makeReservation(this, bs.getBook(bookIndex));			
+		}
 	}
 	
 	public void cancelReserveBooks() {

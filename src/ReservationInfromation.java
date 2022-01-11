@@ -11,7 +11,8 @@ public class ReservationInfromation {
 	// TO CHANGE BOOK ISSUE STATUS
 	public void changeBooksStatus(boolean status) {
 		for(Book book: bookRequested) {
-			book.issuedStatus = status;
+			book.availableQuantity -= 1;
+			book.unavailableQuantity += 1;
 		}
 	}
 	

@@ -6,8 +6,8 @@ public class Client {
 		// TODO Auto-generated method stub
 
 
-		Member member1 = new Member("Ajwad Alias");
-		Member member2 = new Member("Ashraf Alias");		
+		Member member1 = new Member("Ajwad Alias", "ajwad", "1234");
+		Member member2 = new Member("Ashraf Alias","ashraf", "qwer");		
 		Librarian librarian = new Librarian();
 		
 		Scanner scan = new Scanner(System.in);
@@ -16,8 +16,8 @@ public class Client {
 		
 		do {
 			System.out.println("Select a user:");
-			System.out.println("[1] Member 1 (Ajwad Alias)");
-			System.out.println("[2] Member 2 (Ashraf Alias)");
+			System.out.println("[1] Member 1 ("+member1.name+")");
+			System.out.println("[2] Member 2 ("+member2.name+")");
 			System.out.println("[3] Librarian");
 			System.out.println("[99] EXIT PROGRAM");
 			
@@ -41,7 +41,8 @@ public class Client {
 				break;
 			}
 			default:
-				throw new IllegalArgumentException("Unexpected value: " + action);
+//				throw new IllegalArgumentException("Unexpected value: " + action);
+				System.err.println("Please choose again");
 			}
 			
 			
@@ -90,7 +91,8 @@ public class Client {
 				break;
 			}
 			default:
-				throw new IllegalArgumentException("Unexpected value: " + action);
+//				throw new IllegalArgumentException("Unexpected value: " + action);
+				System.err.println("Please choose again");
 			}
 			
 			if (exitFlag) {
@@ -126,7 +128,8 @@ public class Client {
 				break;
 			}
 			default:
-				throw new IllegalArgumentException("Unexpected value: " + action);
+//				throw new IllegalArgumentException("Unexpected value: " + action);
+				System.err.println("Please choose again");
 			}
 			
 			if (exitFlag) {
