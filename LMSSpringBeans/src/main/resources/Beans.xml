@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+    <bean 
+        id="book"
+        scope="prototype"
+        class="com.lmsspringbeans.Book"/>
+    <bean 
+        id="bookStorage" 
+        class="com.lmsspringbeans.BookStorage"/>
+    <bean 
+        id="bookReservation" 
+        scope="prototype"
+        class="com.lmsspringbeans.BookReservation"/>
+    <bean 
+        id="reservation" 
+        class="com.lmsspringbeans.Reservation"/>
+    <bean 
+        id="reservationInformation" 
+        scope="prototype"
+        class="com.lmsspringbeans.ReservationInformation"/>
+    <bean 
+        id="issuedBooks" 
+        class="com.lmsspringbeans.IssuedBooks"/>
+    <bean 
+        id="user" 
+        scope="prototype"
+        class="com.lmsspringbeans.User"/>
+    <bean 
+        id="librarian" 
+        scope="prototype"
+        class="com.lmsspringbeans.Librarian"/>
+    <bean 
+        id="member" 
+        scope="prototype"
+        class="com.lmsspringbeans.Member"/>
+    <!--    <bean 
+    id="GUIController" 
+    scope="prototype"
+    class="com.lmsspringbeans.GUIController"/>-->
+</beans>
