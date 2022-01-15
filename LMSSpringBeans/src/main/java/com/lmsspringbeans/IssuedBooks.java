@@ -141,21 +141,24 @@ public class IssuedBooks {
      */
     public List<Book> getAllMemberIssuedBooksList(User user) {
         List<Book> memberIssuedBooksList = new ArrayList<>();
+        ReservationInformation reservationInformation = approvedReservation.get(user);
+        List<Book> books = reservationInformation.issuedBooksList;
+
+        System.out.println(user.getName() + " issuedBooksList: " + reservationInformation.issuedBooksList);
 
         for (BookReservation br : issuedBookReservationsList) {
             if (br != null) {
-                if (br.getUserID() == user.getId()) {
-                    ReservationInformation reservationInformation = approvedReservation.get(user);
-
-                    if (reservationInformation != null) {
-                        return reservationInformation.issuedBooksList;
-                    } else {
-                        return null;
+                for (Book book : books) {
+                    
+                    // Add book to memberIssuedBooksList if bookID & userID in BookReservation matchesF
+                    if (br.getUserID() == user.getId() && br.getBookID() == book.getId()) {
+                        memberIssuedBooksList.add(book);
                     }
                 }
             }
         }
-        return null;
+
+        return memberIssuedBooksList;
     }
 
     /**
