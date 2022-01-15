@@ -83,7 +83,7 @@
                               <HBox alignment="CENTER_RIGHT" spacing="10.0">
                                  <children>
                                     <Label text="Book ID:" />
-                                    <TextField fx:id="book_id_field" editable="false" />
+                                    <TextField fx:id="book_id_field" disable="true" editable="false" />
                                  </children>
                                  <VBox.margin>
                                     <Insets />
@@ -95,7 +95,7 @@
                               <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" spacing="10.0">
                                  <children>
                                     <Label text="Book Name:" />
-                                    <TextField fx:id="book_name_field" editable="false" />
+                                    <TextField fx:id="book_name_field" disable="true" editable="false" />
                                  </children>
                                  <padding>
                                     <Insets bottom="10.0" top="10.0" />
@@ -104,7 +104,7 @@
                               <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="56.0" spacing="10.0">
                                  <children>
                                     <Label text="Book Author:" />
-                                    <TextField fx:id="book_author_field" editable="false" />
+                                    <TextField fx:id="book_author_field" disable="true" editable="false" />
                                  </children>
                                  <padding>
                                     <Insets bottom="10.0" top="10.0" />
@@ -113,7 +113,7 @@
                               <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="102.0" spacing="10.0">
                                  <children>
                                     <Label text="Book Year:" />
-                                    <TextField fx:id="book_year_field" editable="false" />
+                                    <TextField fx:id="book_year_field" disable="true" editable="false" />
                                  </children>
                                  <padding>
                                     <Insets bottom="10.0" top="10.0" />
